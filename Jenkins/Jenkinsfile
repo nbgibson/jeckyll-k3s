@@ -1,0 +1,17 @@
+pipeline {
+  agent {
+    kubernetes {
+      yamlFile '../k3s/agent.yaml'
+      idleMinutes 5
+    }
+  }
+  stages {
+    stage('Agent Test') {
+      steps {
+        container('builder') {
+          sh 'echo \'Hello, world!\''
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+  - name: builder
+    image: jekyll/builder:3.8
+    command:
+    - cat
+    tty: true
+  imagePullSecrets:
+  - name: regcred
